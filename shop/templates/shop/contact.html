@@ -1,0 +1,41 @@
+{% extends 'shop/base.html' %}
+{%load static%}
+
+
+{%block content%}
+<style>.section-bg{height: 210%!important;}</style>
+<section class="contact-area section-padding section-relative" id="contact">
+        <div class="section-bg"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+                    <div class="page-title">
+                        <h2>Contactez nous</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum repellat vitae fugiat voluptatum autem repudiandae rerum porro dicta, natus minima.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+                    <form action="{% url 'home' %}" id="contact-form" class="form-horizontal" role="form" method="post">
+                    {% csrf_token %}
+                        <input type="text" class="form-control" id="form-name" name="form-name" placeholder="Name" required="">
+
+                        <input type="email" class="form-control" id="form-email" name="form-email" placeholder="Email" required="">
+                        <label for="select"  style="color: #fff;">Sujet</label>
+                            <select class="form-control" id="select" name="form-subject">
+                              <option>Demande d'information</option>
+                              <option>Demande de partenariat</option>
+
+                            </select>
+                          <br>
+                        <textarea class="form-control" rows="6" id="form-message" name="form-message" placeholder="Message" required=""></textarea>
+                        <div class="text-center">
+                            <button type="submit" class="battn">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+{%endblock%}

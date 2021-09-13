@@ -1,0 +1,61 @@
+{% extends 'shop/base.html' %}
+{%load static%}
+
+
+
+{%block content%}
+
+<body>
+
+  <!-- Page Content -->
+  <div class="container">
+
+
+
+    <!-- Portfolio Item Row -->
+
+    <div class="row">
+      <div class="col-md-8">
+        {%if object.image1%}
+        <div class="card" style="width: 50%">
+  <img src="{{object.image1.url}}" class="card-img-top" alt="...">
+        </div>
+        {%endif%}
+        <br>
+         {%if object.image2%}
+        <div class="card" style="width: 70%;">
+  <img src="{{object.image2.url}}" class="card-img-top" alt="...">
+        </div>
+        {%endif%}
+        <br>
+{%if object.image3%}
+        <div class="card" style="width: 70%;">
+  <img src="{{object.image3.url}}" class="card-img-top" alt="...">
+        </div>
+        {%endif%}
+      </div>
+
+
+      <div class="col-md-4">
+        <h3 class="my-3">{{object.race}}</h3>
+        <p>{{object.description}}</p>
+        <h3 class="my-3">Détails de l'offre</h3>
+        <ul>
+          <li>{{object.price}}</li>
+          <li>{{object.quantity}}</li>
+          <li>{{object.sexe}}</li>
+          <li>{{object.created_at}}</li>
+        </ul>
+      </div>
+
+    </div>
+
+  </div>
+  <br>
+  <br>
+  <br>
+  <br>
+  <!-- /.container -->
+
+</html>
+{%endblock%}

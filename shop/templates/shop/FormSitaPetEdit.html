@@ -1,0 +1,57 @@
+{% extends 'accounts/sidebar.html' %}
+{%load static%}
+
+
+
+{%block form%}
+<style> .section-padding {
+    padding: 0px 0;
+}  </style>
+ <section class="price-area section-padding" id="price">
+        <div class="container">
+            <div class="row">
+                <div class="text-center col-xs-12 col-sm-8 col-sm-offset-2">
+                    <div class="page-title">
+                        <h2>Garder un Animal</h2>
+                        </div>
+                </div>
+            </div>
+            <div class="row">
+<form action="" method="POST">
+    {%csrf_token%}
+    <div class="form-group ">
+    {{form.race.label}}
+    {{form.race}}<br>
+    {{form.category.label}}
+    {{form.category}}<br>
+    {{form.price.label}}
+    {{form.price}}<br>
+    {{form.description.label}}
+    {{form.description}}<br>
+    {{form.sexe.label}}
+    {{form.sexe}}<br>
+        {{form.pets}} I have pets
+        <br>
+        <br>
+        {{form.garden}} I have a garden
+        <br>
+        <br>
+        {{form.house}} Animals are allowed to be in the house
+        <br>
+        <br>
+        {{form.available_from.label}}
+    {{form.available_from}}<br>
+        {{form.available_to.label}}
+    {{form.available_to}}<br>
+        {{form.images.label}}
+    {{form.images}}<br>
+        </div>
+    <input class="btn btn-success" type="submit" value="Confirmer">
+</form>
+            </div>
+            </div>
+</section>
+<br>
+<br>
+<br>
+     {%endblock%}

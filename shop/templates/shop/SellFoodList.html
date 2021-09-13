@@ -1,0 +1,73 @@
+{% extends 'shop/base.html' %}
+{%load static%}
+
+
+{%block content%}
+
+<body>
+
+  <div class="container">
+      <form method="GET">
+          {{filterset.form}} <br>
+          <input type="submit" value="Rechercher">
+      </form> <br>
+    <div class="row">
+      {%for object in object_list %}
+      <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
+
+                    <div class="single-blog">
+
+                        <div class="blog-photo">
+                            <img src="{{object.thumbnail.url}}" alt="">
+                            <div class="blog-date">
+                                <h3></h3>
+                            </div>
+                        </div>
+                        <h2>{{object.brand}}</h2>
+
+                          <div class="tags">
+                            <a href="#"><i class="fa fa-dollar"></i>{{object.price}}</a>
+                            <a href="#"><i class="fa fa-paw"></i>{{object.category}}</a>
+                        </div>
+
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when pecimen book. It has scenturies,</p>
+
+
+                        <a href="{% url 'vendre_nouriture_detail' object.id %}" class="read-more">Voir plus</a>
+
+                    </div>
+
+                </div>
+{%endfor%}
+      </div>
+
+
+    <!-- Pagination -->
+    <ul class="pagination justify-content-center">
+      <li class="page-item">
+        <a class="page-link" href="#" aria-label="Previous">
+          <span aria-hidden="true">&laquo;</span>
+          <span class="sr-only">Previous</span>
+        </a>
+      </li>
+      <li class="page-item">
+        <a class="page-link" href="#">1</a>
+      </li>
+      <li class="page-item">
+        <a class="page-link" href="#">2</a>
+      </li>
+      <li class="page-item">
+        <a class="page-link" href="#">3</a>
+      </li>
+      <li class="page-item">
+        <a class="page-link" href="#" aria-label="Next">
+          <span aria-hidden="true">&raquo;</span>
+          <span class="sr-only">Next</span>
+        </a>
+      </li>
+    </ul>
+
+  </div>
+  <!-- /.container -->
+
+  {%endblock%}

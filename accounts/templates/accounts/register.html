@@ -1,0 +1,43 @@
+{% extends 'shop/base.html' %}
+{%load static%}
+
+
+{%block content%}
+<style>.section-bg{height: 210%!important;}</style>
+<section class="contact-area section-padding section-initial section-marging" id="contact" >
+        <div class="section-bg"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+                    <div class="page-title">
+                        <h2>Inscrivez-vous</h2>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+                    <form action=""  class="form-horizontal"  method="post">
+{% csrf_token %}
+<label style="color: #fff;">Prénom</label><br>
+                    {{form.first_name}}<br>
+                    <label style="color: #fff;">Nom</label><br>
+                    {{form.last_name}}<br>
+                    <label style="color: #fff;">E-mail</label><br>
+                    {{form.email}}<br>
+                    <label style="color: #fff;">Gouvernorat</label><br>
+                    {{form.gouvernerat}}<br>
+                    <label style="color: #fff;">Mot de passe</label><br>
+                    {{form.password1}}<br>
+                    <label style="color: #fff;">Confirmation de mot de passe</label><br>
+                    {{form.password2}}<br>
+
+                        <div class="text-center">
+                            <input type="submit" class="battn" value="S'inscrire">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+{%endblock%}

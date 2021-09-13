@@ -1,0 +1,32 @@
+{% extends 'shop/base.html' %}
+{%load static%}
+
+
+
+{%block content%}
+<style> .section-padding {
+    padding: 0px 0;
+}  </style>
+ <section class="price-area section-padding" id="price">
+        <div class="container">
+            <div class="row">
+                <div class="text-center col-xs-12 col-sm-8 col-sm-offset-2">
+                    <div class="page-title">
+                        <h2>Ajouter une Question</h2>
+                        </div>
+                </div>
+            </div>
+            <div class="row">
+                {%for question in questions%}
+                {{question.subject}}
+                {{question.description}}<br>
+                {{form.user.name}}
+                {% endfor %}
+
+            </div>
+            </div>
+</section>
+<br>
+<br>
+<br>
+     {%endblock%}

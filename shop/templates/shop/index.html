@@ -1,0 +1,210 @@
+﻿{% extends 'shop/base.html' %}
+{%load static%}
+
+{% block content %}
+
+<style>
+    .price-battn {
+    background-color: #ffffff;
+    padding: 4px 20px; !important
+    border-radius: 100px;
+    display: inline-block;
+    color: #464646;
+    font-weight: 600;
+    font-family: 'Dosis', sans-serif;
+}
+
+
+</style>
+    <!-- Start-About-Area -->
+    <section class="about-area section-padding section-relative" id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 text-right wow fadeIn">
+                    <div class="page-title">
+                        <h2>A propos de nos</h2>
+                    </div>
+                    <div class="about-text">
+                        <h3>It is a long established fact that a reader will be <br> distractedby content of a page when looking at its layout.</h3>
+                        <p>The point of using Lorem Ipsum is that it has a 'Content here, content here', like readable English. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a 'Content here, content here.</p>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End-About-Area -->
+    <!-- Start-Service-area-->
+
+    <section class="price-area section-padding" id="Sellpet">
+        <div class="container">
+            <div class="row">
+                <div class="text-center col-xs-12 col-sm-8 col-sm-offset-2">
+                    <div class="page-title">
+                        <h2>Les dernieres Pet Sells</h2>
+                        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                {%for offer in SellAPet%}
+                <div class="col-xs-12 col-sm-4 xs-bottom-50 wow fadeIn">
+                    <div class="single-price">
+                        <div class="price-header">
+                            <img src="{{offer.thumbnail.url}}" alt="price">
+                            <div class="price-plan">
+                               
+                                <div class="price-rate">
+                                    <h3>{{offer.price}} TND</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="price-body">
+                            <ul>
+                                <li>Catégorie: {{offer.category}}</li>
+                                <hr>
+                                <li>Race: {{offer.race}}</li>
+                                <hr>
+                                <li>Addresse: Tunis, Hay Ezzouhour</li>
+                                
+                            </ul>
+                        </div>
+                        <div class="price-footer">
+                            <a href="{% url 'vendre_un_animal_detail' offer.id %}" class="price-battn">Voir plus <i class="fa fa-angle-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                {%endfor%}
+            </div>
+        </div>
+    </section>
+    <!-- Start-Service-area-->
+
+    <section class="price-area section-padding" id="Donate">
+        <div class="container">
+            <div class="row">
+                <div class="text-center col-xs-12 col-sm-8 col-sm-offset-2">
+                    <div class="page-title">
+                        <h2>Les dernieres Pet Donates</h2>
+                        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                {%for offer in DonateAPet%}
+                <div class="col-xs-12 col-sm-4 xs-bottom-50 wow fadeIn">
+                    <div class="single-price">
+                        <div class="price-header">
+                            <img src="{{offer.thumbnail.url}}" alt="price">
+                            <div class="price-plan">
+                            </div>
+                        </div>
+                        <div class="price-body">
+                            <ul>
+                                <li>Catégorie: {{offer.category}}</li>
+                                <hr>
+                                <li>Race: {{offer.race}}</li>
+                                <hr>
+                                <li>Addresse: Tunis, Hay Ezzouhour</li>
+
+                            </ul>
+                        </div>
+                        <div class="price-footer">
+                            <a href="{% url 'offrir_un_animal_detail' offer.id %}" class="price-battn">Voir plus <i class="fa fa-angle-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                {%endfor%}
+            </div>
+        </div>
+    </section>
+     <!-- Start-Blog-Area -->
+     <section class="blog-area section-padding" id="Sitpet">
+        <div class="container">
+            <div class="row">
+                <div class="text-center col-xs-12 col-sm-8 col-sm-offset-2">
+                    <div class="page-title">
+                        <h2>Les dernieres offres Pet sitters</h2>
+                        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row blog-slide">
+                {%for offer in SitAPet%}
+                <div class="col-xs-12 wow fadeIn">
+                    <div class="single-blog">
+                        <div class="blog-photo">
+                            <img src="{{offer.thumbnail.url}}" alt="">
+                            <div class="blog-date">
+                                <h3></h3>
+                            </div>
+                        </div>
+                        <h2>Nom1 prénom</h2>
+
+                        <div class="tags">
+                            <a href="#"><i class="fa fa-calendar"></i>Du {{offer.available_from}} au {{offer.available_to}}</a>
+                        </div>
+
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when pecimen book. It has scenturies,</p>
+
+                        <div class="tags">
+                            <a href="#"><i class="fa fa-map-marker"></i>Hay Ezzouhour</a>
+                            <a href="#"><i class="fa fa-paw"></i>{{offer.race}}</a>
+                        </div>
+                        <a href="{% url 'garder_un_animal_detail' offer.id %}" class="read-more">Voir plus</a>
+                    </div>
+                </div>
+                {%endfor%}
+
+            </div>
+
+        </div>
+    </section>
+    <!-- Start-Food-area -->
+<section class="price-area section-padding" id="Sellfood">
+        <div class="container">
+            <div class="row">
+                <div class="text-center col-xs-12 col-sm-8 col-sm-offset-2">
+                    <div class="page-title">
+                        <h2>Les dernieres offres Pet food</h2>
+                        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                {%for offer in SellFood%}
+                <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
+
+                    <div class="single-blog">
+
+                        <div class="blog-photo">
+                            <img src="{{offer.thumbnail.url}}" alt="">
+                            <div class="blog-date">
+                                <h3></h3>
+                            </div>
+                        </div>
+                        <h2>{{offer.brand}}</h2>
+
+                          <div class="tags">
+                            <a href="#"><i class="fa fa-dollar"></i>{{offer.price}}</a>
+                            <a href="#"><i class="fa fa-paw"></i>{{offer.category}}</a>
+                        </div>
+
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when pecimen book. It has scenturies,</p>
+
+
+                        <a href="{% url 'vendre_nouriture_detail' offer.id %}" class="read-more">Voir plus</a>
+
+                    </div>
+
+                </div>
+                {%endfor%}
+            </div>
+
+        </div>
+    </section>
+{% endblock %}

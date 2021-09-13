@@ -1,0 +1,59 @@
+{%extends 'shop/base.html'%}
+{% load static%}
+{%block content%}
+
+<style>
+a {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    font-size: 15px;
+    color: #ffffff;
+    line-height: 1.6;
+}
+.sidenavprofile {
+  width: 130px;
+  position: fixed;
+  z-index: -1;
+  top: 335px;
+  left: 0px;
+  background: #64BE43;
+  overflow-x: hidden;
+  padding: 8px 0;
+}
+
+.sidenavprofile a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+
+  display: block;
+}
+
+
+.mainprofile {
+  margin-left: 140px; /* Same width as the sidebar + left position in px */
+  padding: 0px 10px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+</style>
+</head>
+<body>
+
+<div class="sidenavprofile">
+  <a href="{% url 'profile' %}">Mon Profile</a>
+  <a href="{% url 'offres' %}">Mes offres</a>
+  <a href="{% url 'vendre' %}">Vendre un pet</a>
+  <a href="{% url 'garder' %}">Garder un pet</a>
+  <a href="{% url 'vendre_alimentation' %}">Vendre du pet food</a>
+</div>
+
+<div class="mainprofile">
+{% block form %}
+  {% endblock %}
+</div>
+
+</body>
+{% endblock %}
