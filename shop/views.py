@@ -19,6 +19,10 @@ class Home(ListView):
         context['DonateAPet'] = DonateAPet.objects.all().order_by('-created_at')[:3]
         context['SitAPet'] = SitAPet.objects.all().order_by('-created_at')[:3]
         context['SellFood'] = SellFood.objects.all().order_by('-created_at')[:4]
+        context['Cover'] = Cover.objects.all()
+        context['Section1'] = Section1.objects.all()
+        context['Section2'] = Section2.objects.all()
+        context['Testimonial'] = Testimonial.objects.all()
         return context
 
 

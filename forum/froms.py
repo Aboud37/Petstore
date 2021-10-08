@@ -5,10 +5,10 @@ class QuestionForm(forms.ModelForm):
 
     class Meta:
         model= Question
-        fields = ['subject','description','user']
+        fields = ['subject','name','description']
 
 
 class ResponseForm(forms.ModelForm):
     class Meta:
         model = Response
-        fields = '__all__'
+        fields = ['name','description']

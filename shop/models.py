@@ -7,6 +7,39 @@ from accounts.models import *
 
 # Create your models here.
 
+class Cover(models.Model):
+    big_cover_img = models.ImageField(null=False, blank=False, upload_to="seting_image/")
+    small_cover_img = models.ImageField(null=False, blank=False, upload_to="seting_image/")
+    cover_title= models.CharField(null=False, blank=False, max_length=30, default='null')
+
+    def __str__(self):
+        return self.cover_title
+
+class Section1(models.Model):
+    section1_img= models.ImageField(null=False, blank=False, upload_to="seting_image/")
+    section1_desc = models.CharField(null=False, blank=False, max_length=50)
+
+    def __str__(self):
+        return self.section1_desc
+
+class Section2(models.Model):
+    section2_title = models.CharField(null=False, blank=False, max_length=20)
+    section2_desc1 = models.CharField(null=False, blank=False, max_length=30, default="null")
+    section2_desc2 = models.CharField(null=False, blank=False, max_length=30, default="null")
+    section2_img = models.ImageField(null=True, blank=False, upload_to="seting_image/")
+
+    def __str__(self):
+        return self.section2_desc1
+
+class Testimonial(models.Model):
+    title = models.CharField(null=False, blank=False, max_length=30)
+    name = models.CharField(null=False, blank=False, max_length=30)
+    location = models.CharField(null=False, blank=False, max_length=30)
+    description = models.TextField(null=False, blank=False, max_length=5000)
+    img = models.ImageField(null=True, blank=False, upload_to="seting_image/")
+
+    def __str__(self):
+        return self.name
 
 class Category(models.Model):
     name = models.CharField(max_length=250)
@@ -111,3 +144,4 @@ class DonateAPet(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     def __str__(self):
         return str(self.user.first_name) + " " + str(self.user.last_name)+ " " + ":" + " "+ str(self.category)
+
